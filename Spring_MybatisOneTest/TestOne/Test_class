@@ -1,0 +1,37 @@
+package com.JavaSpring.Spring_Mybatis;
+
+import com.JavaSpring.Spring_Mybatis.dao.StudentDao;
+import com.JavaSpring.Spring_Mybatis.domain.Student;
+import com.JavaSpring.Spring_Mybatis.service.StudentService;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
+
+public class MyTest {
+    @Test
+    public void test(){
+        /*String string = "applicationContext.xml";
+        //参数是spring容器的配置文件
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(string);
+        //参数是接口名首字母小写
+        StudentService studentService = (StudentService)applicationContext.getBean("studentService");
+        Student student = new Student();
+        student.setId(1011);
+        student.setName("chenshisi");
+        student.setEmail("chenshisi@123.com");
+        student.setAge(23);
+        int sum = studentService.addStudent(student);
+        System.out.println(sum);*/
+
+        String config="applicationContext.xml";
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(config);
+        //获取spring容器中的dao对象
+        StudentService service = (StudentService) ctx.getBean("studentService");
+        List<Student> students = service.queryStudent();
+        for (Student stu:students){
+            System.out.println(stu);
+        }
+    }
+}
