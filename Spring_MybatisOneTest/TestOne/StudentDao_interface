@@ -1,0 +1,10 @@
+package com.JavaSpring.Spring_Mybatis.dao;
+
+import com.JavaSpring.Spring_Mybatis.domain.Student;
+
+import java.util.List;
+
+public interface StudentDao {
+    int insertStudent(Student student);
+    List<Student> selectStudent();
+}
