@@ -1,0 +1,4 @@
+jdbc.url=jdbc:mysql://localhost:3306/mydatabases?serverTimezone=UTC
+jdbc.user=root
+jdbc.pass=adnim
+jdbc.max=20
