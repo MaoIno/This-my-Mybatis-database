@@ -1,0 +1,28 @@
+package com.JavaSpring.Spring_Mybatis.service.Imlp;
+
+import com.JavaSpring.Spring_Mybatis.dao.StudentDao;
+import com.JavaSpring.Spring_Mybatis.domain.Student;
+import com.JavaSpring.Spring_Mybatis.service.StudentService;
+
+import java.util.List;
+
+public class StudentServiceImpl implements StudentService {
+
+    private StudentDao studentDao;
+
+    public void setStudentDao(StudentDao studentDao) {
+        this.studentDao = studentDao;
+    }
+
+    @Override
+    public int addStudent(Student student) {
+        int num = studentDao.insertStudent(student);
+        return num;
+    }
+
+    @Override
+    public List<Student> queryStudent() {
+        List<Student> studentList = studentDao.selectStudent();
+        return studentList;
+    }
+}
